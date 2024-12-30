@@ -1,17 +1,11 @@
 import React from 'react';
-import '../styles/Header.css';
 
-const Header = () => (
-    <header className="header">
-        <h1>Battlefield 4 Server Info</h1>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Servers</li>
-                <li>Settings</li>
-            </ul>
-        </nav>
+function Header() {
+  return (
+    <header style={{ backgroundColor: '#f8f9fa', padding: '10px 20px' }}>
+      <h1>My Full-Stack App</h1>
     </header>
-);
+  );
+}
 
 export default Header;

@@ -1,15 +1,19 @@
 import React from 'react';
+import './App.css'; // Component-specific styles
 import Header from './components/Header';
-import ServerInfo from './components/ServerInfo';
 import Footer from './components/Footer';
-import './styles/App.css';
+import Home from './pages/Home';
 
-const App = () => (
-    <div className="app">
-        <Header />
-        <ServerInfo />
-        <Footer />
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <main>
+        <Home />
+      </main>
+      <Footer />
     </div>
-);
+  );
+}
 
 export default App;
