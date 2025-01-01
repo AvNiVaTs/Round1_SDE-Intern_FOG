@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/ServerInfo.css';
+// ServerInfo.js
+import React from 'react';
+import '../App.css';
 
 const ServerInfo = () => {
-    const [serverData, setServerData] = useState(null);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/api/server-info') // Replace with backend URL
-            .then((response) => response.json())
-            .then((data) => setServerData(data))
-            .catch((error) => console.error(error));
-    }, []);
-
-    if (!serverData) return <div>Loading...</div>;
-
-    return (
-        <div className="server-info">
-            <h2>{serverData.name}</h2>
-            <p>{serverData.description}</p>
-            <div className="server-stats">
-                <div>Players: {serverData.players}</div>
-                <div>Ping: {serverData.ping}ms</div>
-                <div>Map: {serverData.map}</div>
-                {/* Add more fields as per the API */}
-            </div>
-        </div>
-    );
+  return (
+    <section className="server-info">
+      <h2>RC3-BASEMAPS</h2>
+      <p><img src="germany-flag.png" alt="American Flag" /> Conquest Large - Lancang Dam - Custom - 60 Hz</p>
+      <p>Server protected by The_K-50 AntiCheat. VIP! Rules, Questions, Request, Appeal, Visit us: <a href="https://www.epg.gg">www.epg.gg</a> | Discord: <a href="https://discord.gg/3r5NK4d">https://discord.gg/3r5NK4d</a></p>
+    </section>
+  );
 };
 
 export default ServerInfo;

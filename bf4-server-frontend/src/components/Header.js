@@ -1,11 +1,14 @@
+// Header.js
 import React from 'react';
+import '../App.css';
 
-function Header() {
+const Header = () => {
   return (
-    <header style={{ backgroundColor: '#f8f9fa', padding: '10px 20px' }}>
-      <h1>My Full-Stack App</h1>
+    <header className="header">
+      <h1>Multiplayer / Server Browser /</h1>
+      <p>SERVER INFO</p>
     </header>
   );
-}
+};
 
 export default Header;

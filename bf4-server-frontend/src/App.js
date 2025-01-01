@@ -1,17 +1,40 @@
+// App.js
 import React from 'react';
-import './App.css'; // Component-specific styles
 import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
+import ServerInfo from './components/ServerInfo';
+import ButtonGroup from './components/ButtonGroup';
+import InfoColumns from './components/InfoColumns';
+import SettingsSection from './components/SettingsSection';
+import AdvancedSettings from './components/AdvancedSettings';
+import RulesSection from './components/RulesSection';
+import MapRotationGrid from './components/MapRotationGrid';
+import LeftSidebar from './components/LeftSidebar';
+import RightSidebar from './components/RightSidebar';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <Home />
-      </main>
-      <Footer />
+    <div className="app">
+      <div class="background-layer">
+        <div class="overlay-layer"></div>
+      </div>
+      <div class="main-box">
+        <LeftSidebar />
+        <div class="main">
+          <Header />
+          <div class="container">
+            <ServerInfo />
+            <ButtonGroup />
+            <InfoColumns />
+            <SettingsSection />
+            <AdvancedSettings />
+            <RulesSection />
+            <MapRotationGrid />
+          </div>
+          <div class="glowLine"></div>
+        </div>
+        <RightSidebar />
+      </div>
     </div>
   );
 }
