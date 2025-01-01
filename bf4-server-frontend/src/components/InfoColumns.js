@@ -5,9 +5,18 @@ import '../App.css';
 const InfoColumns = () => {
   return (
     <div className="info-columns">
-      <div className="column"><strong>PLAYERS</strong></div>
-      <div className="column"><strong>PING</strong></div>
-      <div className="column"><strong>TICKRATE</strong></div>
+      <div className="column">
+        PLAYERS
+        <p>60/64</p>
+      </div>
+      <div className="column">
+        PING
+        <p>104 ms</p>
+      </div>
+      <div className="column">
+        TICKRATE
+        <p>60 Hz</p>
+      </div>
     </div>
   );
 };

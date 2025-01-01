@@ -5,14 +5,29 @@ import '../App.css';
 const SettingsSection = () => {
   return (
     <section className="settings">
-      <h3>SETTINGS</h3>
-      <ul>
-        <li>Region</li>
-        <li>Punkbuster</li>
-        <li>Fairfight</li>
-        <li>Password</li>
-        <li>Preset</li>
-      </ul>
+      <p>SETTINGS</p>
+      <div class="list">
+        <button>
+          <p>REGION</p>
+          <p class="option">EUROPE-DE</p>
+        </button>
+        <button>
+          <p>PUNKBUSTER</p>
+          <p class="option">ON</p>
+        </button>
+        <button>
+          <p>FAIRFIGHT</p>
+          <p class="option">ON</p>
+        </button>
+        <button>
+          <p>PASSWORD</p>
+          <p class="option">OFF</p>
+        </button>
+        <button>
+          <p>PRESET</p>
+          <p class="option">NORMAL</p>
+        </button>
+      </div>
     </section>
   );
 };
