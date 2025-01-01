@@ -26,9 +26,11 @@ function App() {
             <ServerInfo />
             <ButtonGroup />
             <InfoColumns />
-            <SettingsSection />
-            <AdvancedSettings />
-            <RulesSection />
+            <div class="subSection">
+              <SettingsSection />
+              <AdvancedSettings />
+              <RulesSection />
+            </div>
             <MapRotationGrid />
           </div>
           <div class="glowLine"></div>

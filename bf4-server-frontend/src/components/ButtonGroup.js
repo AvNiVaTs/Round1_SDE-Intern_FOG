@@ -8,7 +8,7 @@ const ButtonGroup = () => {
       <button>JOIN</button>
       <button>SPECTATE</button>
       <button>JOIN AS COMMANDER</button>
-      <button>★ 13672</button>
+      <button class="rate">★ 13672</button>
     </div>
   );
 };

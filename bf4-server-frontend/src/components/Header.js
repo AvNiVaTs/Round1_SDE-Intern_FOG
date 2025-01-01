@@ -5,8 +5,14 @@ import '../App.css';
 const Header = () => {
   return (
     <header className="header">
-      <h1>Multiplayer / Server Browser /</h1>
-      <p>SERVER INFO</p>
+      <p class="image-box">
+        <img src="back.png" />
+        <div>MULTIPLAYER</div> 
+        <div>/</div>
+        <div>SERVER BROWSER</div>
+        <div>/</div>
+      </p>
+      <p class="heading">SERVER INFO</p>
     </header>
   );
 };
