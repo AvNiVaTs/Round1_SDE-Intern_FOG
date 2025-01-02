@@ -1,32 +1,34 @@
-// SettingsSection.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
+import axios from 'axios';
 
 const SettingsSection = () => {
+  const [settings, setSettings] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/data/') // Fetch data from the correct endpoint
+      .then(response => {
+        console.log('API Response:', response.data);
+        setSettings(response.data.settings); // Update state with the settings array
+      })
+      .catch(error => console.error('Error fetching settings:', error));
+  }, []);
+
   return (
     <section className="settings">
       <p>SETTINGS</p>
-      <div class="list">
-        <button>
-          <p>REGION</p>
-          <p class="option">EUROPE-DE</p>
-        </button>
-        <button>
-          <p>PUNKBUSTER</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>FAIRFIGHT</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>PASSWORD</p>
-          <p class="option">OFF</p>
-        </button>
-        <button>
-          <p>PRESET</p>
-          <p class="option">NORMAL</p>
-        </button>
+      <div className="list">
+        {settings.length > 0 ? (
+          settings.map((setting, index) => (
+            <button key={index}>
+              <p>{setting.name}</p>
+              <p className="option">{setting.option}</p>
+            </button>
+          ))
+        ) : (
+          <p>Loading settings...</p>
+        )}
       </div>
     </section>
   );

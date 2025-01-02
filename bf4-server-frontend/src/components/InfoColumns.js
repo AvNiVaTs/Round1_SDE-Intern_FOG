@@ -1,21 +1,34 @@
 // InfoColumns.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
+import axios from 'axios';
 
 const InfoColumns = () => {
+  const [data, setData] = useState({ players: "", ping: "", tickrate: "" });
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/data') // Fetching data from the backend
+      .then(response => {
+        console.log("Fetched Data:", response.data); // Debugging log
+        setData(response.data); // Update state with the fetched data
+      })
+      .catch(error => console.error("Error fetching data:", error));
+  }, []);
+
   return (
     <div className="info-columns">
       <div className="column">
         PLAYERS
-        <p>60/64</p>
+        <p>{data.players}</p>
       </div>
       <div className="column">
         PING
-        <p>104 ms</p>
+        <p>{data.ping}</p>
       </div>
       <div className="column">
         TICKRATE
-        <p>60 Hz</p>
+        <p>{data.tickrate}</p>
       </div>
     </div>
   );

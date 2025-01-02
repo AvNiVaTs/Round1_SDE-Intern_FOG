@@ -1,60 +1,34 @@
-// AdvancedSettings.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
+import axios from 'axios';
 
 const AdvancedSettings = () => {
+  const [advancedSettings, setAdvancedSettings] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/data/') // Fetch data from the correct endpoint
+      .then(response => {
+        console.log('Advanced Settings API Response:', response.data.advanced);
+        setAdvancedSettings(response.data.advanced); // Update state with the advanced settings array
+      })
+      .catch(error => console.error('Error fetching advanced settings:', error));
+  }, []);
+
   return (
     <section className="advanced-settings">
       <p>ADVANCED</p>
-      <div class="list">
-        <button>
-          <p>MINIMAP</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>ONLY SQUAD LEADER SPAWN</p>
-          <p class="option">OFF</p>
-        </button>
-        <button>
-          <p>VEHICLES</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>TEAM BALANCE</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>MINIMAP SPOTTING</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>HUD</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>3P VEHICLE CAM</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>REGENERATIVE HEALTH</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>KILL CAM</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>FRIENDLY FIRE</p>
-          <p class="option">OFF</p>
-        </button>
-        <button>
-          <p>3D SPOTTING</p>
-          <p class="option">ON</p>
-        </button>
-        <button>
-          <p>ENEMY NAME TAGS</p>
-          <p class="option">ON</p>
-        </button>
+      <div className="list">
+        {advancedSettings.length > 0 ? (
+          advancedSettings.map((setting, index) => (
+            <button key={index}>
+              <p>{setting.name}</p>
+              <p className="option">{setting.option}</p>
+            </button>
+          ))
+        ) : (
+          <p>Loading advanced settings...</p>
+        )}
       </div>
     </section>
   );

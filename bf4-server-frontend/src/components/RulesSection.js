@@ -1,44 +1,34 @@
-// RulesSection.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../App.css';
+import axios from 'axios';
 
 const RulesSection = () => {
+  const [rules, setRules] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/data/') // Fetch data from the API endpoint
+      .then(response => {
+        console.log('Rules API Response:', response.data.rules);
+        setRules(response.data.rules); // Update state with the rules array
+      })
+      .catch(error => console.error('Error fetching rules:', error));
+  }, []);
+
   return (
     <section className="rules">
       <p>RULES</p>
-      <div class="list">
-        <button>
-          <p>TICKETS</p>
-          <p class="option">400</p>
-        </button>
-        <button>
-          <p>VEHICLE SPAWN DELAY</p>
-          <p class="option">25</p>
-        </button>
-        <button>
-          <p>BULLET DAMAGE</p>
-          <p class="option">100</p>
-        </button>
-        <button>
-          <p>KICK AFTER TEAM KILLS</p>
-          <p class="option">5</p>
-        </button>
-        <button>
-          <p>PLAYER HEALTH</p>
-          <p class="option">100</p>
-        </button>
-        <button>
-          <p>PLAYER RESPAWN TIME</p>
-          <p class="option">100</p>
-        </button>
-        <button>
-          <p>KICK AFTER IDLE</p>
-          <p class="option">300</p>
-        </button>
-        <button>
-          <p>BAN AFTER KICKS</p>
-          <p class="option">3</p>
-        </button>
+      <div className="list">
+        {rules.length > 0 ? (
+          rules.map((rule, index) => (
+            <button key={index}>
+              <p>{rule.name}</p>
+              <p className="option">{rule.option}</p>
+            </button>
+          ))
+        ) : (
+          <p>Loading rules...</p>
+        )}
       </div>
     </section>
   );
