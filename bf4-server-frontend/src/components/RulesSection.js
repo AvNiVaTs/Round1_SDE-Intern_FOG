@@ -7,7 +7,7 @@ const RulesSection = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/data/') // Fetch data from the API endpoint
+      .get('https://battleground4-serverinfo.onrender.com') // Fetch data from the API endpoint
       .then(response => {
         console.log('Rules API Response:', response.data.rules);
         setRules(response.data.rules); // Update state with the rules array

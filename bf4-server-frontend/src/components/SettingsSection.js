@@ -7,7 +7,7 @@ const SettingsSection = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/data/') // Fetch data from the correct endpoint
+      .get('https://battleground4-serverinfo.onrender.com') // Fetch data from the correct endpoint
       .then(response => {
         console.log('API Response:', response.data);
         setSettings(response.data.settings); // Update state with the settings array

@@ -7,7 +7,7 @@ const AdvancedSettings = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/data/') // Fetch data from the correct endpoint
+      .get('https://battleground4-serverinfo.onrender.com') // Fetch data from the correct endpoint
       .then(response => {
         console.log('Advanced Settings API Response:', response.data.advanced);
         setAdvancedSettings(response.data.advanced); // Update state with the advanced settings array

@@ -8,7 +8,7 @@ const InfoColumns = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/data') // Fetching data from the backend
+      .get('https://battleground4-serverinfo.onrender.com') // Fetching data from the backend
       .then(response => {
         console.log("Fetched Data:", response.data); // Debugging log
         setData(response.data); // Update state with the fetched data
